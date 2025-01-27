@@ -1,0 +1,26 @@
+package github.alfonsojaen.view;
+
+import github.alfonsojaen.MainApp;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+
+import java.io.IOException;
+
+public class Scenes {
+    public static void setRoot(String fxml) throws IOException {
+        Parent p = MainApp.loadFXML(fxml);
+        Scene newScene;
+        if (fxml.equals("pantallaLoginUser")) {
+            newScene = MainApp.createScene(fxml, 600, 420);
+        } else if (fxml.equals("pantallaRegisterUser")) {
+            newScene = MainApp.createScene(fxml, 600, 420);
+        } else {
+            newScene = MainApp.createScene(fxml, 600, 400);
+        }
+        MainApp.primaryStage.setScene(newScene);
+        MainApp.scene.setRoot(p);
+
+
+    }
+}
+
