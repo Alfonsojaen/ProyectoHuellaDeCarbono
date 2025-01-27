@@ -12,6 +12,7 @@ public class HuellaDAO {
         Transaction transaction = session.beginTransaction();
         session.save(huella);
         transaction.commit();
+        System.out.println("Insertada huella: " + huella);
         session.close();
     }
 }

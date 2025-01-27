@@ -9,5 +9,7 @@ module github.alfonsojaen {
     opens github.alfonsojaen.entities to org.hibernate.orm.core;
 
     exports github.alfonsojaen;
+    exports github.alfonsojaen.view;
+    opens github.alfonsojaen.view to javafx.fxml;
 
 }
