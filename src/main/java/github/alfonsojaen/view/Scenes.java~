@@ -11,9 +11,9 @@ public class Scenes {
         Parent p = MainApp.loadFXML(fxml);
         Scene newScene;
         if (fxml.equals("pantallaLoginUser")) {
-            newScene = MainApp.createScene(fxml, 640, 420);
+            newScene = MainApp.createScene(fxml, 700, 450);
         } else if (fxml.equals("pantallaRegisterUser")) {
-            newScene = MainApp.createScene(fxml, 640, 420);
+            newScene = MainApp.createScene(fxml, 700, 450);
         } else {
             newScene = MainApp.createScene(fxml, 600, 400);
         }

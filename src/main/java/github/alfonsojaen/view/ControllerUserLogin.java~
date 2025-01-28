@@ -20,13 +20,11 @@ public class ControllerUserLogin {
 
 private UsuarioService usuarioService = new UsuarioService();
     @FXML
-    private void login() throws SQLException, IOException {
+    private void login() {
 
-
-        // Obtenemos los valores introducidos por el usuario
         String gmail = tGmail.getText().trim();
         String password = tPass.getText().trim();
-      //  password = Utils.encryptSHA256(password);
+        password = Utils.encryptSHA256(password);
 
         if (gmail.equals("") || password.equals("")) {
             Utils.ShowAlert("Falta algún campo por introducir");
@@ -35,22 +33,16 @@ private UsuarioService usuarioService = new UsuarioService();
             usuario.setEmail(gmail);
             usuario.setContraseña(password);
 
-            // Llamamos al servicio para autenticar al usuario
             boolean loginExitoso = usuarioService.login(usuario);
 
             if (loginExitoso) {
-                // Si el login es exitoso, mostramos un mensaje y cambiamos a la página de usuario
                 Utils.ShowAlert("Login exitoso, el usuario se ha logueado correctamente.");
-                switchToUserPage();
             } else {
-                // Si el login falla, cerramos la sesión y mostramos un mensaje de error
                 UserSession.getInstancia().logOut();
                 Utils.ShowAlert("No se ha podido logear, inténtelo de nuevo.");
             }
         }
     }
-
-
 
     @FXML
     private void switchToUserPage() throws IOException {

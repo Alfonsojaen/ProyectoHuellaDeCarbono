@@ -6,7 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import java.util.List;
 
 public class UserDAO {
 
@@ -15,18 +14,18 @@ public class UserDAO {
     private static final String QUERY_BUSCAR_USUARIO = "FROM Usuario u WHERE u.email = :email";
 
 
-    public void saveUser(Usuario user) {
+    public static void saveUser(Usuario user) {
         Session session = Connection.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session.save(user);
+        session.persist(user);
         transaction.commit();
         session.close();
 
     }
-    public void updateUser(Usuario user) {
+    public static void updateUser(Usuario user) {
         Session session = Connection.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session.update(user);
+        session.merge(user);
         transaction.commit();
         session.close();
     }

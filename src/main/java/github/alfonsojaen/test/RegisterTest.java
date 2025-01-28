@@ -2,6 +2,7 @@ package github.alfonsojaen.test;
 
 import github.alfonsojaen.entities.Usuario;
 import github.alfonsojaen.services.UsuarioService;
+import github.alfonsojaen.utils.Utils;
 
 import java.time.Instant;
 import java.util.Scanner;
@@ -27,7 +28,8 @@ public class RegisterTest {
         Usuario usuario = new Usuario();
         usuario.setNombre(nombre);
         usuario.setEmail(email);
-        usuario.setContraseña(contrasena);
+        usuario.setContraseña(Utils.encryptSHA256(contrasena));
+
 
         // Establecer la fecha de registro automáticamente
         Instant fechaActual = Instant.now();

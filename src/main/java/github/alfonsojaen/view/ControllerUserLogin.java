@@ -9,7 +9,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class ControllerUserLogin {
 
@@ -20,11 +19,11 @@ public class ControllerUserLogin {
 
 private UsuarioService usuarioService = new UsuarioService();
     @FXML
-    private void login() throws SQLException, IOException {
+    private void login() {
 
         String gmail = tGmail.getText().trim();
         String password = tPass.getText().trim();
-      //  password = Utils.encryptSHA256(password);
+        password = Utils.encryptSHA256(password);
 
         if (gmail.equals("") || password.equals("")) {
             Utils.ShowAlert("Falta algún campo por introducir");
@@ -37,7 +36,6 @@ private UsuarioService usuarioService = new UsuarioService();
 
             if (loginExitoso) {
                 Utils.ShowAlert("Login exitoso, el usuario se ha logueado correctamente.");
-                switchToUserPage();
             } else {
                 UserSession.getInstancia().logOut();
                 Utils.ShowAlert("No se ha podido logear, inténtelo de nuevo.");

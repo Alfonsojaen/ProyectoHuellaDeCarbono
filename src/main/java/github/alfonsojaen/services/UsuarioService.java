@@ -6,7 +6,7 @@ import github.alfonsojaen.singleton.UserSession;
 
 public class UsuarioService {
 
-UserDAO userDAO = new UserDAO();
+    UserDAO userDAO = new UserDAO();
 
     public boolean login(Usuario user) {
         if (user.getEmail() == null || user.getContraseña() == null) {

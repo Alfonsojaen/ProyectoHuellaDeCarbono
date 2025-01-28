@@ -7,12 +7,21 @@ import org.hibernate.Transaction;
 
 public class HuellaDAO {
 
-    private static void crearHuella(Huella huella) {
+    public static void crearHuella(Huella huella) {
         Session session = Connection.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session.save(huella);
+        session.persist(huella);
         transaction.commit();
         session.close();
+    }
+
+    public Huella findById(Integer id) {
+        Session session = Connection.getInstance().getSession();
+        try {
+            return session.get(Huella.class, id);
+        } finally {
+            session.close();
+        }
     }
 }
 

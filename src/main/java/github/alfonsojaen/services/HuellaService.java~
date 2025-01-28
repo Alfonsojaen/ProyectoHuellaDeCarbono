@@ -1,0 +1,37 @@
+package github.alfonsojaen.services;
+
+import github.alfonsojaen.dao.HuellaDAO;
+import github.alfonsojaen.entities.Huella;
+import github.alfonsojaen.entities.Usuario;
+import github.alfonsojaen.singleton.UserSession;
+
+public class HuellaService {
+
+    HuellaDAO userDAO = new HuellaDAO();
+
+    public boolean crearHuella(Huella huella) {
+        if ( huella.getId() == null || huella.getValor() == null || huella.getUnidad() == null || huella.getFecha() == null || huella.getIdActividad() == null) {
+            return false;  // Validación de los datos de la huella
+        }
+
+        // Obtener el usuario logueado desde el singleton
+        Usuario usuarioLogueado = UserSession.getInstancia().getUsuarioIniciado();
+
+        if (usuarioLogueado == null) {
+            return false;  // Si no hay usuario logueado, no se puede crear la huella
+        }
+
+        // Verificar si ya existe una huella con el mismo ID (o algún otro criterio de duplicado)
+        Huella huellaExistente = userDAO.findById(huella.getId());
+        if (huellaExistente != null) {
+            return false;  // Si la huella ya existe, no se puede crear otra
+        }
+
+        // Asociamos el usuario logueado a la huella
+        huella.setIdUsuario(usuarioLogueado);
+
+        // Llamamos a la función para guardar la huella
+        userDAO.crearHuella(huella);
+        return true;
+    }
+}

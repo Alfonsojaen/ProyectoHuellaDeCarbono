@@ -18,7 +18,8 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("pantallaLoginUser"), 640, 480);
+        primaryStage = stage;
+        scene = new Scene(loadFXML("pantallaLoginUser"), 640, 420);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
