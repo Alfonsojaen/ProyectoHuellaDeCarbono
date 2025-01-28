@@ -5,6 +5,7 @@ import github.alfonsojaen.entities.Huella;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+
 public class HuellaDAO {
 
     public static void crearHuella(Huella huella) {
@@ -15,13 +16,5 @@ public class HuellaDAO {
         session.close();
     }
 
-    public Huella findById(Integer id) {
-        Session session = Connection.getInstance().getSession();
-        try {
-            return session.get(Huella.class, id);
-        } finally {
-            session.close();
-        }
-    }
 }
 

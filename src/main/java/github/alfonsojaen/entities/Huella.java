@@ -3,6 +3,7 @@ package github.alfonsojaen.entities;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 import java.time.LocalDate;
 
 @Entity
@@ -28,7 +29,7 @@ public class Huella {
     private String unidad;
 
     @Column(name = "fecha")
-    private LocalDate fecha;
+    private Instant fecha;
 
     public Integer getId() {
         return id;
@@ -70,11 +71,11 @@ public class Huella {
         this.unidad = unidad;
     }
 
-    public LocalDate getFecha() {
+    public Instant getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(Instant fecha) {
         this.fecha = fecha;
     }
 

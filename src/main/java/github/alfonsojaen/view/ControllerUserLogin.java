@@ -19,7 +19,7 @@ public class ControllerUserLogin {
 
 private UsuarioService usuarioService = new UsuarioService();
     @FXML
-    private void login() {
+    private void login() throws IOException {
 
         String gmail = tGmail.getText().trim();
         String password = tPass.getText().trim();
@@ -36,6 +36,7 @@ private UsuarioService usuarioService = new UsuarioService();
 
             if (loginExitoso) {
                 Utils.ShowAlert("Login exitoso, el usuario se ha logueado correctamente.");
+                switchToUserPage();
             } else {
                 UserSession.getInstancia().logOut();
                 Utils.ShowAlert("No se ha podido logear, inténtelo de nuevo.");
@@ -45,7 +46,7 @@ private UsuarioService usuarioService = new UsuarioService();
 
     @FXML
     private void switchToUserPage() throws IOException {
-       Scenes.setRoot("primary");
+       Scenes.setRoot("pantallaInsertHuella");
     }
 
     @FXML
