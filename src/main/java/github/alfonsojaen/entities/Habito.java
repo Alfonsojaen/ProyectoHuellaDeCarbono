@@ -50,6 +50,9 @@ public class Habito {
         return idActividad;
     }
 
+    public Integer getIdUsuarioInt() {
+        return idUsuario != null ? idUsuario.getId() : null;
+    }
     public void setIdActividad(Actividad idActividad) {
         this.idActividad = idActividad;
     }

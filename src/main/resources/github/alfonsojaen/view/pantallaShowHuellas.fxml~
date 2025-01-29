@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="github.alfonsojaen.view.ControllerShowHabitos">
+    <TableView fx:id="tableHabitos" layoutX="20" layoutY="20" prefWidth="500" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="colIdActividad" text="ID Actividad" prefWidth="120"/>
+            <TableColumn fx:id="colFrecuencia" text="Frecuencia" prefWidth="100"/>
+            <TableColumn fx:id="colTipo" text="Tipo" prefWidth="100"/>
+            <TableColumn fx:id="colUltimaFecha" text="Última Fecha" prefWidth="120"/>
+        </columns>
+    </TableView>
+</AnchorPane>

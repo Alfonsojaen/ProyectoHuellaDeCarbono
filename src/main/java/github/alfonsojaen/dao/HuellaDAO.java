@@ -4,9 +4,14 @@ import github.alfonsojaen.connection.Connection;
 import github.alfonsojaen.entities.Huella;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import java.util.List;
 
 
 public class HuellaDAO {
+
+    private static final String QUERY_FIND_ALL_HUELLA = "FROM Huella";
 
     public static void crearHuella(Huella huella) {
         Session session = Connection.getInstance().getSession();
@@ -15,6 +20,17 @@ public class HuellaDAO {
         transaction.commit();
         session.close();
     }
+
+    public List<Huella> allHuellas() {
+        Session session = Connection.getInstance().getSession();
+        Query<Huella> miQuery = session.createQuery(QUERY_FIND_ALL_HUELLA, Huella.class);
+        List<Huella> huellas = miQuery.getResultList();
+        session.close();
+        return huellas;
+    }
+
+
+
 
 }
 

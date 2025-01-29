@@ -36,7 +36,7 @@ public class ControllerInsertHuella {
 
     @FXML
     public void initialize() {
-        List<Actividad> actividadesDisponibles = actividadService.obtenerActividades();
+        List<Actividad> actividadesDisponibles = actividadService.getAllActividades();
         cActividad.getItems().addAll(actividadesDisponibles);
 
         cActividad.setOnAction(event -> {
@@ -68,12 +68,12 @@ public class ControllerInsertHuella {
         LocalDate fechaSeleccionada = dFecha.getValue();
 
         if (valor.isEmpty() || actividadSeleccionada == null || fechaSeleccionada == null) {
-            showAlert("Error", "Campos vacíos", "Por favor, complete todos los campos.", Alert.AlertType.ERROR);
+            Utils.ShowAlert("Error, Campos vacíos, Por favor, complete todos los campos.");
             return;
         }
 
         if (fechaSeleccionada.isAfter(LocalDate.now())) {
-            showAlert("Error", "Fecha inválida", "La fecha no puede ser posterior al día de hoy.", Alert.AlertType.ERROR);
+            Utils.ShowAlert("Error, Fecha inválida, La fecha no puede ser posterior al día de hoy.");
             return;
         }
 
@@ -95,13 +95,6 @@ public class ControllerInsertHuella {
         }
     }
 
-    private void showAlert(String title, String header, String content, Alert.AlertType alertType) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(header);
-        alert.setContentText(content);
-        alert.showAndWait();
-    }
 
     @FXML
     private void switchToAnotherScene() {

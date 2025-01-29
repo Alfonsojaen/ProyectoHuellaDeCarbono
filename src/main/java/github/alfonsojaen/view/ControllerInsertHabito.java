@@ -35,7 +35,7 @@ public class ControllerInsertHabito {
 
     @FXML
     public void initialize() {
-        List<Actividad> actividadesDisponibles = actividadService.obtenerActividades();
+        List<Actividad> actividadesDisponibles = actividadService.getAllActividades();
 
         if (actividadesDisponibles == null || actividadesDisponibles.isEmpty()) {
             System.out.println("⚠️ No hay actividades disponibles.");

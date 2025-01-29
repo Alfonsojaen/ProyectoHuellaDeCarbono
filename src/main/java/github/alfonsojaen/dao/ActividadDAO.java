@@ -29,8 +29,6 @@ public class ActividadDAO {
         return unidades;
     }
 
-
-
 }
 
 

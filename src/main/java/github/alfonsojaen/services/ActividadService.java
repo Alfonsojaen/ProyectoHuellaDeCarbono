@@ -10,7 +10,7 @@ public class ActividadService {
     ActividadDAO actividadDAO = new ActividadDAO();
 
 
-    public List<Actividad> obtenerActividades() {
+    public List<Actividad> getAllActividades() {
         return actividadDAO.allActividades();
     }
 

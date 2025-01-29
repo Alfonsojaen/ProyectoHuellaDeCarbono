@@ -46,7 +46,7 @@ private UsuarioService usuarioService = new UsuarioService();
 
     @FXML
     private void switchToUserPage() throws IOException {
-       Scenes.setRoot("pantallaInsertHuella");
+       Scenes.setRoot("pantallaShowHabitos");
     }
 
     @FXML

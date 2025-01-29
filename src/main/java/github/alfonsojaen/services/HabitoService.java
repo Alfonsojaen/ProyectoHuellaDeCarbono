@@ -5,7 +5,10 @@ import github.alfonsojaen.entities.Habito;
 import github.alfonsojaen.entities.Usuario;
 import github.alfonsojaen.singleton.UserSession;
 
+import java.util.List;
+
 public class HabitoService {
+
     HabitoDAO habitoDAO  = new HabitoDAO();
 
     public boolean createHabito(Habito habito) {
@@ -18,5 +21,9 @@ public class HabitoService {
         }
         habitoDAO.createHabito(habito);
         return true;
+    }
+
+    public List<Habito> getAllHabitos() {
+        return habitoDAO.allHabitos();
     }
 }

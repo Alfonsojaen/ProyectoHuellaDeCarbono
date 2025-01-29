@@ -6,7 +6,8 @@ module github.alfonsojaen {
     requires org.hibernate.orm.core;
 
     opens github.alfonsojaen to javafx.fxml;
-    opens github.alfonsojaen.entities to org.hibernate.orm.core;
+    opens github.alfonsojaen.entities to org.hibernate.orm.core, javafx.base;
+
 
     exports github.alfonsojaen;
     exports github.alfonsojaen.view;

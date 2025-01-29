@@ -5,6 +5,7 @@ import github.alfonsojaen.entities.Huella;
 import github.alfonsojaen.entities.Usuario;
 import github.alfonsojaen.singleton.UserSession;
 
+import java.util.List;
 
 public class HuellaService {
 
@@ -20,5 +21,9 @@ public class HuellaService {
         }
         huellaDAO.crearHuella(huella);
         return true;
+    }
+
+    public List<Huella> getAllHuellas() {
+        return huellaDAO.allHuellas();
     }
 }

@@ -14,11 +14,11 @@ public class Huella {
     @Column(name = "id_registro", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_usuario")
     private github.alfonsojaen.entities.Usuario idUsuario;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_actividad")
     private Actividad idActividad;
 
@@ -46,7 +46,9 @@ public class Huella {
     public void setIdUsuario(github.alfonsojaen.entities.Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
-
+    public Integer getIdUsuarioInt() {
+        return idUsuario != null ? idUsuario.getId() : null;
+    }
     public Actividad getIdActividad() {
         return idActividad;
     }
