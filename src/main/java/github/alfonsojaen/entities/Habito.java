@@ -11,12 +11,12 @@ public class Habito {
     private HabitoId id;
 
     @MapsId("idUsuario")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_usuario", nullable = false)
     private github.alfonsojaen.entities.Usuario idUsuario;
 
     @MapsId("idActividad")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_actividad", nullable = false)
     private Actividad idActividad;
 

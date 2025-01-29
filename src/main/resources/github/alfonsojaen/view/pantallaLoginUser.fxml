@@ -28,11 +28,11 @@
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <TextField fx:id="tGmail" layoutX="202.0" layoutY="194.0" prefHeight="26.0" prefWidth="232.0" text="example@gmail.com" AnchorPane.leftAnchor="202.0" AnchorPane.rightAnchor="87.60000000000002">
+                <TextField fx:id="tGmail" layoutX="202.0" layoutY="194.0" prefHeight="26.0" prefWidth="232.0" text="alvaro@gmail.com" AnchorPane.leftAnchor="202.0" AnchorPane.rightAnchor="87.60000000000002">
                <effect>
                   <DropShadow />
                </effect></TextField>
-                <PasswordField fx:id="tPass" layoutX="204.0" layoutY="258.0" prefHeight="26.0" prefWidth="231.0" text="example" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="86.39999999999998">
+                <PasswordField fx:id="tPass" layoutX="204.0" layoutY="258.0" prefHeight="26.0" prefWidth="231.0" text="alvaro" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="86.39999999999998">
                <effect>
                   <DropShadow />
                </effect></PasswordField>

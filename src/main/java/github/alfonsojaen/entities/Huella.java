@@ -29,7 +29,7 @@ public class Huella {
     private String unidad;
 
     @Column(name = "fecha")
-    private Instant fecha;
+    private LocalDate fecha;
 
     public Integer getId() {
         return id;
@@ -71,11 +71,11 @@ public class Huella {
         this.unidad = unidad;
     }
 
-    public Instant getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Instant fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 

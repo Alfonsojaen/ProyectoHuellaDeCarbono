@@ -16,6 +16,8 @@ public class Scenes {
             newScene = MainApp.createScene(fxml, 640, 420);
         } else if (fxml.equals("pantallaInsertHuella")) {
             newScene = MainApp.createScene(fxml, 600, 400);
+        } else if (fxml.equals("pantallaInsertHabito")) {
+            newScene = MainApp.createScene(fxml, 600, 400);
     } else {
             newScene = MainApp.createScene(fxml, 600, 400);
         }

@@ -4,7 +4,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -26,12 +25,6 @@
         <HBox spacing="10" alignment="CENTER_LEFT">
             <Label text="Unidad:"/>
             <Label fx:id="labelUnidad" text="Unidad no encontrada"/>
-        </HBox>
-
-        <!-- Nuevo HBox para el DatePicker -->
-        <HBox spacing="10" alignment="CENTER_LEFT">
-            <Label text="Fecha:"/>
-            <DatePicker fx:id="dFecha" promptText="Seleccione la fecha"/>
         </HBox>
 
         <Button text="Crear Huella" onAction="#btCrearHuella"/>

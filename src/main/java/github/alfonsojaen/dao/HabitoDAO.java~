@@ -67,7 +67,7 @@ public class HabitoDAO {
     public void createHabito(Habito habito) {
         Session session = Connection.getInstance().getSession();
         session.beginTransaction();
-        session.save(habito);
+        session.persist(habito);
         session.getTransaction().commit();
         session.close();
     }

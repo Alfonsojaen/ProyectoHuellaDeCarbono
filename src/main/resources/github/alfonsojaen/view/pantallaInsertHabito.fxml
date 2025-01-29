@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="github.alfonsojaen.view.ControllerInsertHabito">
+
+    <children>
+        <VBox spacing="10" alignment="CENTER" layoutX="20" layoutY="20">
+            <Label text="Crear Hábito" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+            <HBox spacing="10">
+                <Label text="Frecuencia:"/>
+                <TextField fx:id="tFrecuencia" promptText="Ingrese la frecuencia"/>
+            </HBox>
+
+            <HBox spacing="10">
+                <Label text="Actividad:"/>
+                <ComboBox fx:id="cActividad" prefWidth="200"/>
+            </HBox>
+
+            <HBox spacing="10">
+                <Label text="Tipo de Hábito:"/>
+                <ComboBox fx:id="cTipoHabito" prefWidth="200"/>
+            </HBox>
+
+            <HBox spacing="10">
+                <Label text="Fecha:"/>
+                <DatePicker fx:id="dFecha"/>
+            </HBox>
+
+            <Button text="Crear Hábito" onAction="#addHabito" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        </VBox>
+    </children>
+</AnchorPane>
+

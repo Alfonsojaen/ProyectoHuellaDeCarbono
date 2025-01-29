@@ -78,6 +78,10 @@ public class ControllerInsertHuella {
         }
 
         Usuario usuarioLogueado = UserSession.getInstancia().getUsuarioIniciado();
+        if (usuarioLogueado == null) {
+            showAlert("Error", "Usuario no iniciado", "Debe iniciar sesión para crear una huella.", Alert.AlertType.ERROR);
+            return;
+        }
 
         Huella huella = new Huella();
         huella.setValor(new BigDecimal(valor));

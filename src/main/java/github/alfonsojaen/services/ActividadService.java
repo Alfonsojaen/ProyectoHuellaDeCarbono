@@ -17,4 +17,5 @@ public class ActividadService {
     public List<String> findUnidadByActividad(int idCategoria) {
         return actividadDAO.findUnidadByActividad(idCategoria);
     }
+
 }

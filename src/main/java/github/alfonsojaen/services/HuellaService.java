@@ -10,7 +10,7 @@ public class HuellaService {
 
     HuellaDAO huellaDAO = new HuellaDAO();
 
-    public boolean crearHuella(Huella huella) {
+    public boolean createHuella(Huella huella) {
         if (huella.getValor() == null || huella.getUnidad() == null || huella.getIdActividad() == null) {
             return false;
         }
