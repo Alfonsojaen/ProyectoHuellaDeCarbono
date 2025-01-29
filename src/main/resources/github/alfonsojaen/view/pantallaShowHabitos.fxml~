@@ -17,5 +17,8 @@
 
         <!-- Botón para mostrar recomendaciones -->
         <Button fx:id="btnMostrarRecomendaciones" text="Mostrar Recomendaciones" layoutX="20" layoutY="240" onAction="#mostrarRecomendaciones"/>
+
+        <!-- TextArea para mostrar las recomendaciones -->
+        <TextArea fx:id="textAreaRecomendaciones" editable="false" layoutX="20" layoutY="280" prefHeight="200" prefWidth="500" wrapText="true"/>
     </children>
 </AnchorPane>

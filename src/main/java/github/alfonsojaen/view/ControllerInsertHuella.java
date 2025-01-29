@@ -45,6 +45,9 @@ public class ControllerInsertHuella {
                 mostrarUnidadDeActividad(actividadSeleccionada);
             }
         });
+
+        // Solo permitir números en el campo tValor
+        configurarCampoNumerico(tValor);
     }
 
     private void mostrarUnidadDeActividad(Actividad actividad) {
@@ -80,7 +83,7 @@ public class ControllerInsertHuella {
         Usuario usuarioLogueado = UserSession.getInstancia().getUsuarioIniciado();
 
         Huella huella = new Huella();
-        huella.setValor(new BigDecimal(valor));
+        huella.setValor(new BigDecimal(valor));  // Convertir valor a BigDecimal
         huella.setUnidad(labelUnidad.getText());
         huella.setIdActividad(actividadSeleccionada);
         huella.setIdUsuario(usuarioLogueado);
@@ -95,6 +98,15 @@ public class ControllerInsertHuella {
         }
     }
 
+    private void configurarCampoNumerico(TextField textField) {
+        textField.setTextFormatter(new TextFormatter<>(change -> {
+            String newText = change.getControlNewText();
+            if (newText.matches("([0-9]*)[\\.]?[0-9]*")) {
+                return change;
+            }
+            return null;
+        }));
+    }
 
     @FXML
     private void switchToAnotherScene() {
@@ -104,4 +116,5 @@ public class ControllerInsertHuella {
             e.printStackTrace();
         }
     }
+
 }
