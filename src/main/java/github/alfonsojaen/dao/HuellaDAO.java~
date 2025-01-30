@@ -13,7 +13,7 @@ import java.util.List;
 public class HuellaDAO {
 
     private static final String QUERY_FIND_ALL_HUELLA = "FROM Huella";
-
+    private static final String QUERY_FIND_FACTOR_EMISION = "SELECT a.idCategoria.factorEmision FROM Actividad a WHERE a.id = :idActividad";
     public static void crearHuella(Huella huella) {
         Session session = Connection.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -29,6 +29,18 @@ public class HuellaDAO {
         session.close();
         return huellas;
     }
+
+    public BigDecimal obtenerFactorEmisionPorActividad(int idActividad) {
+        Session session = Connection.getInstance().getSession();
+        Query<BigDecimal> query = session.createQuery(QUERY_FIND_FACTOR_EMISION, BigDecimal.class);
+        query.setParameter("idActividad", idActividad);
+        BigDecimal factorEmision = query.uniqueResult();
+        session.close();
+        return factorEmision;
+    }
+
+
+
 
 }
 
