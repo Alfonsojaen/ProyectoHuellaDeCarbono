@@ -24,6 +24,8 @@ public class Scenes {
             newScene = MainApp.createScene(fxml, 600, 400);
         } else if (fxml.equals("pantallaShowHuellas")) {
             newScene = MainApp.createScene(fxml, 600, 400);
+        } else if (fxml.equals("pantallahHuellas")) {
+            newScene = MainApp.createScene(fxml, 600, 400);
     } else {
             newScene = MainApp.createScene(fxml, 600, 400);
         }

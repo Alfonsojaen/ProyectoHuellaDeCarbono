@@ -54,9 +54,7 @@ public class ControllerShowHabitos {
 
         if (usuarioActual != null) {
             List<Habito> listaHabitos = habitoService.getAllHabitos();
-            List<Habito> listaFiltrada = listaHabitos.stream()
-                    .filter(h -> h.getIdUsuarioInt().equals(usuarioActual.getId()))
-                    .collect(Collectors.toList());
+            List<Habito> listaFiltrada = listaHabitos.stream().filter(h -> h.getIdUsuarioInt().equals(usuarioActual.getId())).collect(Collectors.toList());
 
             ObservableList<Habito> habitos = FXCollections.observableArrayList(listaFiltrada);
             tableHabitos.setItems(habitos);

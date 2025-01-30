@@ -1,14 +1,15 @@
 package github.alfonsojaen.view;
 
-import github.alfonsojaen.entities.Huella;
-import github.alfonsojaen.entities.Usuario;
+import github.alfonsojaen.entities.*;
 import github.alfonsojaen.services.ActividadService;
 import github.alfonsojaen.services.HuellaService;
+import github.alfonsojaen.services.RecomendacionService;
 import github.alfonsojaen.singleton.UserSession;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -35,12 +36,23 @@ public class ControllerShowHuellas {
     @FXML
     private TableColumn<Huella, String> colFecha;
 
+    @FXML
+    private Button btnMostrarHuella;
+
+    @FXML
+    private Button btnMostrarRecomendaciones;
+
+    @FXML
+    private Button btnCrearHuella;
+
     private HuellaService huellaService;
     private ActividadService actividadService;
+    private RecomendacionService recomendacionService;
 
     public ControllerShowHuellas() {
         huellaService = new HuellaService();
         actividadService = new ActividadService();
+        recomendacionService = new RecomendacionService();
     }
 
     @FXML
@@ -105,6 +117,47 @@ public class ControllerShowHuellas {
             alert.setTitle("Advertencia");
             alert.setHeaderText("Ninguna huella seleccionada");
             alert.setContentText("Por favor, selecciona una huella de la tabla.");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    public void mostrarRecomendaciones() {
+        Huella huellaSeleccionada = tableHuellas.getSelectionModel().getSelectedItem();
+
+        if (huellaSeleccionada != null) {
+            Actividad actividad = huellaSeleccionada.getIdActividad();
+            Categoria categoria = actividad.getIdCategoria();
+            int idCategoria = categoria.getId();
+
+            List<Recomendacion> recomendaciones = recomendacionService.findRecomendacionesByCategoria(idCategoria);
+
+            if (!recomendaciones.isEmpty()) {
+                StringBuilder recomendacionesTexto = new StringBuilder();
+                recomendaciones.forEach(recomendacion -> {
+                    recomendacionesTexto.append(recomendacion.getDescripcion()).append("\n");
+                });
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Recomendaciones");
+                alert.setHeaderText("Recomendaciones para la actividad: " + actividad.getNombre());
+                alert.setContentText(recomendacionesTexto.toString());
+
+                alert.showAndWait();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Sin Recomendaciones");
+                alert.setHeaderText("No hay recomendaciones para esta actividad.");
+                alert.setContentText("Lo sentimos, no se han encontrado recomendaciones para la actividad seleccionada.");
+
+                alert.showAndWait();
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Advertencia");
+            alert.setHeaderText("Ningún hábito seleccionado");
+            alert.setContentText("Por favor, selecciona un hábito de la tabla.");
+
             alert.showAndWait();
         }
     }

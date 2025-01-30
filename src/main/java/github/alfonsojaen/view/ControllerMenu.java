@@ -14,7 +14,7 @@ public class ControllerMenu {
 
     @FXML
     private void switchToShowHuellas() throws IOException {
-        Scenes.setRoot("pantallaShowHuellas");
+        Scenes.setRoot("pantallahHuellas");
     }
     @FXML
     private void switchToUserSession() throws IOException {
