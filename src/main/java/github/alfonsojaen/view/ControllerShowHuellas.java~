@@ -73,7 +73,9 @@ public class ControllerShowHuellas {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }*/
+                System.out.println("Valor actualizado a: " + nuevoValor);
             } catch (NumberFormatException e) {
+                System.out.println("Error al convertir el valor a BigDecimal: " + event.getNewValue());
             }
         });
 

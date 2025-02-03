@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -15,73 +14,70 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.alfonsojaen.view.ControllerUserRegister">
     <children>
-      <AnchorPane prefHeight="422.0" prefWidth="668.0" style="-fx-background-color: GREY;">
+      <AnchorPane prefHeight="422.0" prefWidth="641.0" style="-fx-background-color: grey;">
          <children>
-            <Label layoutX="86.0" layoutY="205.0" prefHeight="39.0" prefWidth="74.0" text="Gmail">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="194.0" layoutY="36.0" prefHeight="39.0" prefWidth="255.0" text="REGISTRACIÓN">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
-            <Button layoutX="239.0" layoutY="348.0" mnemonicParsing="false" onAction="#btRegistrar" prefHeight="16.0" prefWidth="166.0" style="-fx-background-color: black;" text="Registrarme" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Separator layoutX="3.0" layoutY="85.0" prefHeight="14.0" prefWidth="640.0" />
-            <Separator layoutX="2.0" layoutY="394.0" prefHeight="14.0" prefWidth="640.0" />
-            <Label layoutX="78.0" layoutY="272.0" prefHeight="39.0" prefWidth="90.0" text="Contraseña">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="78.0" layoutY="140.0" prefHeight="39.0" prefWidth="110.0" text="Nombre">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <TextField fx:id="tname" layoutX="213.0" layoutY="146.0" prefHeight="26.0" prefWidth="232.0">
-               <effect>
-                  <DropShadow />
-               </effect>
-            </TextField>
-            <TextField fx:id="tgmail" layoutX="213.0" layoutY="211.0" prefHeight="26.0" prefWidth="232.0">
-               <effect>
-                  <DropShadow />
-               </effect>
-            </TextField>
-            <ImageView fitHeight="26.0" fitWidth="27.0" layoutX="181.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="422.0" fitWidth="638.0" opacity="0.22" pickOnBounds="true">
                <image>
-                  <Image url="@../../../icons/usuario.png" />
+                  <Image url="@../../../icons/Foto%20iniciar%20sesion.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="26.0" fitWidth="27.0" layoutX="181.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../icons/gmail.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="26.0" fitWidth="27.0" layoutX="181.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../icons/contrasena.png" />
-               </image>
-            </ImageView>
-            <PasswordField fx:id="tpassword" layoutX="213.0" layoutY="278.0" prefHeight="26.0" prefWidth="232.0">
-               <effect>
-                  <DropShadow />
-               </effect>
-            </PasswordField>
-            <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="31.0" layoutY="19.0" onMouseClicked="#switchToLoginUser" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="13.0" layoutY="7.0" onMouseClicked="#switchToLoginUser" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../icons/FluentEmojiHighContrastBackArrow.png" />
                </image>
             </ImageView>
+            <AnchorPane layoutX="148.0" layoutY="42.0" prefHeight="329.0" prefWidth="339.0" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="150.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../icons/Logo.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="65.0" fitWidth="22.0" layoutX="66.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../icons/usuario.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="65.0" fitWidth="22.0" layoutX="66.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../icons/gmail.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="100.0" layoutY="257.0" mnemonicParsing="false" onAction="#btRegistrar" prefHeight="19.0" prefWidth="140.0" style="-fx-background-color: black;" text="REGISTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label alignment="CENTER" layoutX="90.0" layoutY="13.0" prefHeight="30.0" prefWidth="161.0" text="REGISTRARSE" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="88.39999999999998">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tname" layoutX="101.0" layoutY="118.0" prefHeight="26.0" prefWidth="140.0">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TextField>
+                  <TextField fx:id="tgmail" layoutX="100.0" layoutY="164.0" prefHeight="26.0" prefWidth="140.0">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TextField>
+                  <PasswordField fx:id="tpassword" layoutX="100.0" layoutY="211.0" prefHeight="26.0" prefWidth="140.0">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </PasswordField>
+                  <ImageView fitHeight="65.0" fitWidth="22.0" layoutX="66.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../icons/contrasena.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
     </children>

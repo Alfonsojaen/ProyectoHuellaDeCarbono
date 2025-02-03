@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -18,54 +17,63 @@
     <children>
         <AnchorPane prefHeight="422.0" prefWidth="641.0" style="-fx-background-color: grey;" HBox.hgrow="ALWAYS">
             <children>
-                <Label layoutX="82.0" layoutY="187.0" prefHeight="39.0" prefWidth="110.0" text="Gmail" textAlignment="JUSTIFY">
-                    <font>
-                        <Font name="System Bold" size="16.0" />
-                    </font>
-                </Label>
-                <Label layoutX="82.0" layoutY="251.0" prefHeight="39.0" prefWidth="110.0" text="Contraseña" textAlignment="JUSTIFY">
-                    <font>
-                        <Font name="System Bold" size="16.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="tGmail" layoutX="202.0" layoutY="194.0" prefHeight="26.0" prefWidth="232.0" text="alvaro@gmail.com" AnchorPane.leftAnchor="202.0" AnchorPane.rightAnchor="87.60000000000002">
-               <effect>
-                  <DropShadow />
-               </effect></TextField>
-                <PasswordField fx:id="tPass" layoutX="204.0" layoutY="258.0" prefHeight="26.0" prefWidth="231.0" text="alvaro" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="86.39999999999998">
-               <effect>
-                  <DropShadow />
-               </effect></PasswordField>
-                <Label alignment="CENTER" layoutX="154.0" layoutY="50.0" prefHeight="46.0" prefWidth="348.0" text="HUELLA DE CARBONO" AnchorPane.leftAnchor="154.0" AnchorPane.rightAnchor="138.0">
-                    <font>
-                        <Font name="System Bold" size="31.0" />
-                    </font>
-                </Label>
-                <Button layoutX="248.0" layoutY="315.0" mnemonicParsing="false" onAction="#login" prefHeight="19.0" prefWidth="140.0" style="-fx-background-color: black;" text="LOGIN" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-                </Button>
-                <Label alignment="CENTER" layoutX="27.0" layoutY="368.0" prefHeight="39.0" prefWidth="173.0" text="No estas registrado?" AnchorPane.leftAnchor="27.0">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                </Label>
-                <Separator layoutY="129.0" prefHeight="6.0" prefWidth="361.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="3.2000000000000455" />
-                <Separator layoutX="3.0" layoutY="361.0" prefHeight="6.0" prefWidth="357.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="3.1999999999999886" />
-                <Hyperlink alignment="CENTER" layoutX="184.0" layoutY="366.0" onAction="#switchToRegister" prefHeight="42.0" prefWidth="128.0" text="Registrate" textFill="#a0ef9e">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Hyperlink>
-            <ImageView fitHeight="88.0" fitWidth="110.0" layoutX="38.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="422.0" fitWidth="638.0" opacity="0.22" pickOnBounds="true">
                <image>
-                  <Image url="@../../../icons/Logo.png" />
+                  <Image url="@../../../icons/Foto%20iniciar%20sesion.jpg" />
                </image>
             </ImageView>
+            <AnchorPane layoutX="148.0" layoutY="42.0" prefHeight="329.0" prefWidth="339.0" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="150.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../icons/Logo.png" />
+                     </image>
+                  </ImageView>
+                      <TextField fx:id="tGmail" layoutX="100.0" layoutY="129.0" prefHeight="26.0" prefWidth="140.0" text="alvaro@gmail.com" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="99.19999999999999">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TextField>
+                      <PasswordField fx:id="tPass" layoutX="101.0" layoutY="175.0" prefHeight="26.0" prefWidth="140.0" text="alvaro" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="98.19999999999999">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </PasswordField>
+                  <ImageView fitHeight="65.0" fitWidth="22.0" layoutX="66.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../icons/contrasena.png" />
+                     </image>
+                  </ImageView>
+                      <Button layoutX="101.0" layoutY="224.0" mnemonicParsing="false" onAction="#login" prefHeight="19.0" prefWidth="140.0" style="-fx-background-color: black;" text="LOGIN" textFill="WHITE">
+                          <font>
+                              <Font name="System Bold" size="14.0" />
+                          </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                      </Button>
+                      <Label alignment="CENTER" layoutX="17.0" layoutY="293.0" prefHeight="22.0" prefWidth="120.0" text="No estas registrado?" AnchorPane.leftAnchor="17.0">
+                          <font>
+                              <Font name="System Bold" size="12.0" />
+                          </font>
+                      </Label>
+                      <Hyperlink alignment="CENTER" layoutX="115.0" layoutY="281.0" onAction="#switchToRegister" prefHeight="42.0" prefWidth="128.0" text="Registrate" textFill="#77d174">
+                          <font>
+                              <Font size="14.0" />
+                          </font>
+                      </Hyperlink>
+                      <Label alignment="CENTER" layoutX="90.0" layoutY="13.0" prefHeight="30.0" prefWidth="161.0" text="HUELLA DE CARBONO" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="88.39999999999998">
+                          <font>
+                              <Font name="System Bold" size="15.0" />
+                          </font>
+                      </Label>
+                  <ImageView fitHeight="65.0" fitWidth="22.0" layoutX="66.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../icons/gmail.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
             </children>
         </AnchorPane>
     </children>

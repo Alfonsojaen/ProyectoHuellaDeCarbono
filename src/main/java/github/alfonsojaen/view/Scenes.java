@@ -20,12 +20,10 @@ public class Scenes {
             newScene = MainApp.createScene(fxml, 600, 400);
         } else if (fxml.equals("pantallaInsertHabito")) {
             newScene = MainApp.createScene(fxml, 600, 400);
-        } else if (fxml.equals("pantallaShowHabitos")) {
-            newScene = MainApp.createScene(fxml, 600, 400);
-        } else if (fxml.equals("pantallaShowHuellas")) {
-            newScene = MainApp.createScene(fxml, 600, 400);
-        } else if (fxml.equals("pantallahHuellas")) {
-            newScene = MainApp.createScene(fxml, 600, 400);
+        } else if (fxml.equals("pantallaHabitos")) {
+            newScene = MainApp.createScene(fxml, 640, 420);
+        } else if (fxml.equals("pantallaHuellas")) {
+            newScene = MainApp.createScene(fxml, 640, 420);
     } else {
             newScene = MainApp.createScene(fxml, 600, 400);
         }

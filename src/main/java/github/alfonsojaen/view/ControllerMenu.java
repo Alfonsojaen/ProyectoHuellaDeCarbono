@@ -9,12 +9,12 @@ public class ControllerMenu {
 
     @FXML
     private void switchToShowHabitos() throws IOException {
-       Scenes.setRoot("pantallaShowHabitos");
+       Scenes.setRoot("pantallaHabitos");
     }
 
     @FXML
     private void switchToShowHuellas() throws IOException {
-        Scenes.setRoot("pantallahHuellas");
+        Scenes.setRoot("pantallaHuellas");
     }
     @FXML
     private void switchToUserSession() throws IOException {

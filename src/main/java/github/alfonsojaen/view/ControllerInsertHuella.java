@@ -45,8 +45,6 @@ public class ControllerInsertHuella {
                 mostrarUnidadDeActividad(actividadSeleccionada);
             }
         });
-
-        // Solo permitir números en el campo tValor
         configurarCampoNumerico(tValor);
     }
 
@@ -83,7 +81,7 @@ public class ControllerInsertHuella {
         Usuario usuarioLogueado = UserSession.getInstancia().getUsuarioIniciado();
 
         Huella huella = new Huella();
-        huella.setValor(new BigDecimal(valor));  // Convertir valor a BigDecimal
+        huella.setValor(new BigDecimal(valor));
         huella.setUnidad(labelUnidad.getText());
         huella.setIdActividad(actividadSeleccionada);
         huella.setIdUsuario(usuarioLogueado);

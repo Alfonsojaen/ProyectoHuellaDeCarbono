@@ -6,9 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import java.math.BigDecimal;
 import java.util.List;
-
 
 public class HuellaDAO {
 
@@ -29,6 +27,27 @@ public class HuellaDAO {
         session.close();
         return huellas;
     }
+
+    public List<Huella> obtenerHuellasPorSemana(int idUsuario, String fechaInicio, String fechaFin) {
+        Session session = Connection.getInstance().getSession();
+        Query<Huella> query = session.createQuery("FROM Huella WHERE idUsuario = :idUsuario AND fecha BETWEEN :fechaInicio AND :fechaFin", Huella.class);
+        query.setParameter("idUsuario", idUsuario);
+        query.setParameter("fechaInicio", fechaInicio);
+        query.setParameter("fechaFin", fechaFin);
+
+        List<Huella> huellas = query.getResultList();
+        session.close();
+        return huellas;
+    }
+
+    public void actualizarHuella(Huella huella) {
+        Session session = Connection.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.merge(huella);
+        transaction.commit();
+        session.close();
+    }
+
 
 }
 

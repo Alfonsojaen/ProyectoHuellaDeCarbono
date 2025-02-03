@@ -26,4 +26,14 @@ public class HuellaService {
     public List<Huella> getAllHuellas() {
         return huellaDAO.allHuellas();
     }
+    public void actualizarHuella(Huella huella) {
+        try {
+            if (huella == null || huella.getId() == null) {
+                return;
+            }
+            huellaDAO.actualizarHuella(huella);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

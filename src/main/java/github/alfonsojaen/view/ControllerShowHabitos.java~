@@ -1,5 +1,6 @@
 package github.alfonsojaen.view;
 
+import github.alfonsojaen.dao.RecomendacionDAO;
 import github.alfonsojaen.entities.*;
 import github.alfonsojaen.services.HabitoService;
 import github.alfonsojaen.services.RecomendacionService;
