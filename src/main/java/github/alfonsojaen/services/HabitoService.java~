@@ -2,7 +2,6 @@ package github.alfonsojaen.services;
 
 import github.alfonsojaen.dao.HabitoDAO;
 import github.alfonsojaen.entities.Habito;
-import github.alfonsojaen.entities.Huella;
 import github.alfonsojaen.entities.Usuario;
 import github.alfonsojaen.singleton.UserSession;
 
@@ -31,18 +30,6 @@ public class HabitoService {
     public boolean existeHabito(int idActividad, int idUsuario) {
         return habitoDAO.existeHabito(idActividad, idUsuario);
     }
-
-    public void actualizarHabito(Habito habito) {
-        try {
-            if (habito == null || habito.getId() == null) {
-                return;
-            }
-            habitoDAO.actualizarHabito(habito);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public boolean eliminarHabito(Habito habito) {
         try {
             if (habito == null || habito.getId() == null) {

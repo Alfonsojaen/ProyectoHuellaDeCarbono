@@ -61,24 +61,43 @@ public class ControllerShowHuellas {
         colUnidad.setCellValueFactory(new PropertyValueFactory<>("unidad"));
         colFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
 
-        colValor.setCellFactory(TextFieldTableCell.forTableColumn(new BigDecimalStringConverter()));
+        colValor.setCellFactory(column -> {
+            TextFieldTableCell<Huella, BigDecimal> cell = new TextFieldTableCell<>(new BigDecimalStringConverter()) {
+                @Override
+                public void startEdit() {
+                    super.startEdit();
+                    TextField textField = (TextField) getGraphic();
+                    if (textField != null) {
+                        textField.setTextFormatter(new TextFormatter<>(change -> {
+                            return change.getControlNewText().matches("\\d*\\.?\\d*") ? change : null;
+                        }));
+                    }
+                }
+            };
+            return cell;
+        });
+
         colValor.setOnEditCommit(event -> {
             Huella huella = event.getRowValue();
             try {
                 BigDecimal nuevoValor = new BigDecimal(event.getNewValue().toString());
                 huella.setValor(nuevoValor);
                 huellaService.actualizarHuella(huella);
-                /*try {
-                    //changescenetoPantallaPrincipal();
+
+                try {
+                    switchToShowHuellas();
                 } catch (IOException e) {
                     e.printStackTrace();
-                }*/
+                }
             } catch (NumberFormatException e) {
+                System.err.println("Error: Ingrese un número válido en la columna Valor.");
             }
+            tableHuellas.refresh();
         });
 
         cargarHuellas();
     }
+
 
     private void cargarHuellas() {
         Usuario usuarioActual = UserSession.getInstancia().getUsuarioIniciado();
@@ -253,6 +272,15 @@ public class ControllerShowHuellas {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void switchToShowHuellas() throws IOException {
+        Scenes.setRoot("pantallaHuellas");
+    }
+    @FXML
+    private void switchToDeleteHuella() throws IOException {
+        Scenes.setRoot("pantallaDeleteHuella");
     }
 
     @FXML

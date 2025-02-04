@@ -1,37 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="github.alfonsojaen.view.ControllerInsertHabito">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-    <children>
-        <VBox spacing="10" alignment="CENTER" layoutX="20" layoutY="20">
-            <Label text="Crear Hábito" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-
-            <HBox spacing="10">
-                <Label text="Frecuencia:"/>
-                <TextField fx:id="tFrecuencia" promptText="Ingrese la frecuencia"/>
-            </HBox>
-
-            <HBox spacing="10">
-                <Label text="Actividad:"/>
-                <ComboBox fx:id="cActividad" prefWidth="200"/>
-            </HBox>
-
-            <HBox spacing="10">
-                <Label text="Tipo de Hábito:"/>
-                <ComboBox fx:id="cTipoHabito" prefWidth="200"/>
-            </HBox>
-
-            <HBox spacing="10">
-                <Label text="Fecha:"/>
-                <DatePicker fx:id="dFecha"/>
-            </HBox>
-
-            <Button text="Crear Hábito" onAction="#addHabito" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
-        </VBox>
-    </children>
+<AnchorPane prefHeight="422.0" prefWidth="641.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.alfonsojaen.view.ControllerInsertHabito">
+   <children>
+      <ImageView fitHeight="422.0" fitWidth="638.0" opacity="0.22" pickOnBounds="true">
+         <image>
+            <Image url="@../../../icons/Imagen_habito_insertar.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="13.0" layoutY="7.0" onMouseClicked="#switchToShowHabitos" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../icons/FluentEmojiHighContrastBackArrow.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="162.0" layoutY="34.0" prefHeight="329.0" prefWidth="339.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="150.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/habitos.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="90.0" layoutY="13.0" prefHeight="30.0" prefWidth="161.0" text="AÑADIR HABITO" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="88.39999999999998">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tFrecuencia" layoutX="96.0" layoutY="107.0" promptText="Ingrese la frecuencia" />
+            <ComboBox fx:id="cActividad" layoutX="95.0" layoutY="142.0" prefHeight="26.0" prefWidth="150.0" />
+            <Label layoutX="23.0" layoutY="111.0" text="Frecuencia">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cTipoHabito" layoutX="96.0" layoutY="180.0" prefHeight="26.0" prefWidth="150.0" />
+            <DatePicker fx:id="dFecha" layoutX="95.0" layoutY="217.0" prefHeight="26.0" prefWidth="150.0" />
+            <Label layoutX="8.0" layoutY="184.0" prefHeight="18.0" prefWidth="90.0" text="Tipo de Hábito">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Button layoutX="124.0" layoutY="266.0" onAction="#addHabito" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Añadir Hábito" />
+            <Label layoutX="25.0" layoutY="146.0" text="Actividad ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="37.0" layoutY="221.0" text="Fecha">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
-

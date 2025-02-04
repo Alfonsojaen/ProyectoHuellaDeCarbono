@@ -87,17 +87,17 @@
                   <Font name="System Bold" size="10.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="340.0" layoutY="324.0" prefHeight="19.0" prefWidth="126.0" text="VALOR DE IMPACTO">
+            <Label alignment="CENTER" layoutX="258.0" layoutY="334.0" prefHeight="19.0" prefWidth="126.0" text="VALOR DE IMPACTO">
                <font>
                   <Font name="System Bold" size="10.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="336.0" layoutY="310.0" prefHeight="19.0" prefWidth="126.0" text="CALCULAR">
+            <Label alignment="CENTER" layoutX="256.0" layoutY="320.0" prefHeight="19.0" prefWidth="126.0" text="CALCULAR">
                <font>
                   <Font name="System Bold" size="10.0" />
                </font>
             </Label>
-            <ImageView fitHeight="68.0" fitWidth="73.0" layoutX="371.0" layoutY="252.0" onMouseClicked="#mostrarHuellaCarbono" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="68.0" fitWidth="73.0" layoutX="286.0" layoutY="259.0" onMouseClicked="#mostrarHuellaCarbono" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../icons/CalcularHuella.png" />
                </image>
@@ -126,6 +126,16 @@
             <Label alignment="CENTER" layoutX="40.0" layoutY="4.0" prefHeight="28.0" prefWidth="108.0" text="HUELLA">
                <font>
                   <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="75.0" fitWidth="54.0" layoutX="417.0" layoutY="266.0" onMouseClicked="#switchToDeleteHuella" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/HuellaEliminar.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="396.0" layoutY="323.0" prefHeight="22.0" prefWidth="95.0" text="ELIMINAR HUELLA">
+               <font>
+                  <Font name="System Bold" size="10.0" />
                </font>
             </Label>
          </children>

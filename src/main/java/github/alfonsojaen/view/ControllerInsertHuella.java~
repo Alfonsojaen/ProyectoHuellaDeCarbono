@@ -107,8 +107,12 @@ public class ControllerInsertHuella {
     }
 
     @FXML
-    private void switchToShowHuellas() throws IOException {
-        Scenes.setRoot("pantallaHuellas");
+    private void switchToAnotherScene() {
+        try {
+            Scenes.setRoot("otraEscena");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

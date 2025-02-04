@@ -36,6 +36,13 @@ public class HuellaDAO {
         session.close();
     }
 
+    public void eliminarHuella(Huella huella) {
+        Session session = Connection.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.delete(huella);
+        transaction.commit();
+        session.close();
+    }
 
 }
 

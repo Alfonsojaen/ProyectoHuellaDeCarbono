@@ -2,38 +2,64 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.alfonsojaen.view.ControllerInsertHuella" hgap="10" vgap="10">
-    <VBox spacing="10" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0">
-        <Label text="Crear Huella de Carbono" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-
-        <HBox spacing="10" alignment="CENTER_LEFT">
-            <Label text="Valor:"/>
-            <TextField fx:id="tValor" promptText="Introduce el valor"/>
-        </HBox>
-
-        <HBox spacing="10" alignment="CENTER_LEFT">
-            <Label text="Actividad:"/>
-            <ComboBox fx:id="cActividad" promptText="Selecciona una actividad"/>
-        </HBox>
-
-        <HBox spacing="10" alignment="CENTER_LEFT">
-            <Label text="Unidad:"/>
-            <Label fx:id="labelUnidad" text="Unidad no encontrada"/>
-        </HBox>
-
-        <!-- Nuevo HBox para el DatePicker -->
-        <HBox spacing="10" alignment="CENTER_LEFT">
-            <Label text="Fecha:"/>
-            <DatePicker fx:id="dFecha" promptText="Seleccione la fecha"/>
-        </HBox>
-
-        <Button text="Crear Huella" onAction="#btCrearHuella"/>
-    </VBox>
-</GridPane>
+<AnchorPane prefHeight="422.0" prefWidth="641.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.alfonsojaen.view.ControllerInsertHuella">
+   <children>
+      <ImageView fitHeight="422.0" fitWidth="638.0" opacity="0.22" pickOnBounds="true">
+         <image>
+            <Image url="@../../../icons/Imagen_huella_insertar.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="13.0" layoutY="7.0" onMouseClicked="#switchToShowHuellas" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../icons/FluentEmojiHighContrastBackArrow.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="150.0" layoutY="46.0" prefHeight="329.0" prefWidth="339.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="150.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/huella-de-carbono.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="90.0" layoutY="13.0" prefHeight="30.0" prefWidth="161.0" text="AÑADIR HUELLA" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="88.39999999999998">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="111.0" text="Valor">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="33.0" layoutY="184.0" prefHeight="18.0" prefWidth="41.0" text="Unidad">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Button layoutX="124.0" layoutY="266.0" onAction="#btCrearHuella" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Añadir Huella" />
+            <Label layoutX="25.0" layoutY="146.0" text="Actividad ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="37.0" layoutY="221.0" text="Fecha">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tValor" layoutX="96.0" layoutY="107.0" promptText="Introduce el valor" />
+            <ComboBox fx:id="cActividad" layoutX="96.0" layoutY="141.0" prefHeight="26.0" prefWidth="150.0" promptText="Selecciona una actividad" />
+            <Label fx:id="labelUnidad" layoutX="109.0" layoutY="184.0" text="Unidad no encontrada" />
+            <DatePicker fx:id="dFecha" layoutX="96.0" layoutY="216.0" prefHeight="26.0" prefWidth="150.0" promptText="Seleccione la fecha" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

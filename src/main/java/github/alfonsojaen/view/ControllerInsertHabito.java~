@@ -11,7 +11,6 @@ import github.alfonsojaen.utils.Utils;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -103,9 +102,5 @@ public class ControllerInsertHabito {
         } else {
             Utils.ShowAlert("Error de registro, el hábito no pudo ser creado. Verifique los datos e intente nuevamente.");
         }
-    }
-    @FXML
-    private void switchToShowHabitos() throws IOException {
-        Scenes.setRoot("pantallaHabitos");
     }
 }

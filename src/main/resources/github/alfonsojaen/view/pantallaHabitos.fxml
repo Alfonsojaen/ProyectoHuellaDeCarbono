@@ -115,6 +115,16 @@
                   </Text>
                </children>
             </AnchorPane>
+            <ImageView fitHeight="54.0" fitWidth="56.0" layoutX="383.0" layoutY="256.0" onMouseClicked="#switchToDeleteHabito" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/HabitoEliminar.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="362.0" layoutY="310.0" prefHeight="22.0" prefWidth="95.0" text="ELIMINAR HABITO">
+               <font>
+                  <Font name="System Bold" size="10.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

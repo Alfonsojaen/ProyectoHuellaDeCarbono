@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="422.0" prefWidth="641.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.alfonsojaen.view.ControllerDeleteHabito">
+   <children>
+      <ImageView fitHeight="422.0" fitWidth="638.0" opacity="0.22" pickOnBounds="true">
+         <image>
+            <Image url="@../../../icons/Imagen_habito_insertar.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="13.0" layoutY="7.0" onMouseClicked="#switchToShowHabito" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../icons/FluentEmojiHighContrastBackArrow.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="162.0" layoutY="35.0" prefHeight="329.0" prefWidth="339.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="150.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/habitos.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="90.0" layoutY="13.0" prefHeight="30.0" prefWidth="161.0" text="ELIMINAR HABITO" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="88.39999999999998">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnEliminar" layoutX="140.0" layoutY="250.0" onAction="#btEliminarHabito" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" text="Eliminar" />
+            <ComboBox fx:id="cHabito" layoutX="69.0" layoutY="139.0" prefWidth="200" />
+            <Label fx:id="labelInfo" layoutX="73.0" layoutY="184.0" text="Información del habito seleccionado" wrapText="true" />
+            <Label layoutX="113.0" layoutY="109.0" text="Selecciona un habito:" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

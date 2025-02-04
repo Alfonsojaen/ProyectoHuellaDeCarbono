@@ -81,4 +81,12 @@ public class Huella {
         this.fecha = fecha;
     }
 
+    @Override
+    public String toString() {
+        return "Huella{" +
+                "Actividad= " + idActividad + "" +
+                ", Valor= " + valor + "" +
+                ", Unidad= " + unidad + "" +
+                ", Fecha= " + fecha + "" ;
+    }
 }

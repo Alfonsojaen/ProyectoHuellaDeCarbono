@@ -28,8 +28,6 @@ public class Scenes {
             newScene = MainApp.createScene(fxml, 640, 420);
         } else if (fxml.equals("pantallaDeleteHuella")) {
             newScene = MainApp.createScene(fxml, 640, 420);
-        } else if (fxml.equals("pantallaDeleteHabito")) {
-            newScene = MainApp.createScene(fxml, 640, 420);
     } else {
             newScene = MainApp.createScene(fxml, 600, 400);
         }

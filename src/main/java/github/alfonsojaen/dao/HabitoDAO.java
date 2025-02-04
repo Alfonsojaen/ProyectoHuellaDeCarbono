@@ -3,6 +3,7 @@ package github.alfonsojaen.dao;
 import github.alfonsojaen.connection.Connection;
 import github.alfonsojaen.entities.Habito;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.List;
@@ -36,6 +37,19 @@ public class HabitoDAO {
         session.close();
         return existe;
     }
-
+    public void eliminarHabito(Habito habito) {
+        Session session = Connection.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.delete(habito);
+        transaction.commit();
+        session.close();
+    }
+    public void actualizarHabito(Habito habito) {
+        Session session = Connection.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.merge(habito);
+        transaction.commit();
+        session.close();
+    }
 }
 

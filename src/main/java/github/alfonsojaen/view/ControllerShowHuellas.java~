@@ -68,16 +68,16 @@ public class ControllerShowHuellas {
                 BigDecimal nuevoValor = new BigDecimal(event.getNewValue().toString());
                 huella.setValor(nuevoValor);
                 huellaService.actualizarHuella(huella);
-                /*try {
-                    //changescenetoPantallaPrincipal();
+                try {
+                    switchToShowHuellas();
                 } catch (IOException e) {
                     e.printStackTrace();
-                }*/
+                }
             } catch (NumberFormatException e) {
             }
         });
 
-        cargarHuellas(); // Cargar los datos en la tabla
+        cargarHuellas();
     }
 
     private void cargarHuellas() {
@@ -253,6 +253,15 @@ public class ControllerShowHuellas {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void switchToShowHuellas() throws IOException {
+        Scenes.setRoot("pantallaHuellas");
+    }
+    @FXML
+    private void switchToDeleteHuella() throws IOException {
+        Scenes.setRoot("pantallaDeleteHuella");
     }
 
     @FXML

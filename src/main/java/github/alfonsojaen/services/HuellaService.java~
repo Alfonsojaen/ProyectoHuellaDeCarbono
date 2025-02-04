@@ -36,16 +36,4 @@ public class HuellaService {
             e.printStackTrace();
         }
     }
-    public boolean eliminarHuella(Huella huella) {
-        try {
-            if (huella == null || huella.getId() == null) {
-                return false;
-            }
-            huellaDAO.eliminarHuella(huella);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
 }

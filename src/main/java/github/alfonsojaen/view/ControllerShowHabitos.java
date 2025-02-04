@@ -11,9 +11,13 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.VBox;
+import javafx.util.converter.BigDecimalStringConverter;
+import javafx.util.converter.IntegerStringConverter;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -45,13 +49,46 @@ public class ControllerShowHabitos {
 
     @FXML
     public void initialize() {
+        tableHabitos.setEditable(true);
+
         colIdActividad.setCellValueFactory(new PropertyValueFactory<>("idActividad"));
         colFrecuencia.setCellValueFactory(new PropertyValueFactory<>("frecuencia"));
         colTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
         colUltimaFecha.setCellValueFactory(new PropertyValueFactory<>("ultimaFecha"));
 
+        colFrecuencia.setCellFactory(column -> {
+            TextFieldTableCell<Habito, Integer> cell = new TextFieldTableCell<>(new IntegerStringConverter()) {
+                @Override
+                public void startEdit() {
+                    super.startEdit();
+                    TextField textField = (TextField) getGraphic();
+                    if (textField != null) {
+                        textField.setTextFormatter(new TextFormatter<>(change ->
+                                change.getControlNewText().matches("\\d*") ? change : null
+                        ));
+                    }
+                }
+            };
+            return cell;
+        });
+
+        colFrecuencia.setOnEditCommit(event -> {
+            Habito habito = event.getRowValue();
+            try {
+                Integer nuevaFrecuencia = event.getNewValue();
+                if (nuevaFrecuencia != null) {
+                    habito.setFrecuencia(nuevaFrecuencia);
+                    habitoService.actualizarHabito(habito);
+                }
+            } catch (NumberFormatException e) {
+                System.err.println("Error: Ingrese solo números para la frecuencia.");
+            }
+            tableHabitos.refresh();
+        });
+
         cargarHabitos();
     }
+
 
     private void cargarHabitos() {
         Usuario usuarioActual = UserSession.getInstancia().getUsuarioIniciado();
@@ -187,11 +224,22 @@ public class ControllerShowHabitos {
             e.printStackTrace();
         }
     }
-
+    @FXML
+    private void switchToShowHabitos() throws IOException {
+        Scenes.setRoot("pantallaHabitos");
+    }
     @FXML
     public void switchToInsertHabito() {
         try {
             Scenes.setRoot("pantallaInsertHabito");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void switchToDeleteHabito() {
+        try {
+            Scenes.setRoot("pantallaDeleteHabito");
         } catch (IOException e) {
             e.printStackTrace();
         }
