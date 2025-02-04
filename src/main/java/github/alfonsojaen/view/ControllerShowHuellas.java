@@ -77,7 +77,7 @@ public class ControllerShowHuellas {
             }
         });
 
-        cargarHuellas(); // Cargar los datos en la tabla
+        cargarHuellas();
     }
 
     private void cargarHuellas() {

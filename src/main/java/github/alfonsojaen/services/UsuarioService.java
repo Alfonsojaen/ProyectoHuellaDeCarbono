@@ -32,6 +32,15 @@ public class UsuarioService {
         userDAO.saveUser(user);
         return true;
     }
+    public boolean actualizarUsuario(Usuario usuario) {
+        try {
+            userDAO.updateUser(usuario);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 
 

@@ -26,4 +26,7 @@ public class HabitoService {
     public List<Habito> getAllHabitos() {
         return habitoDAO.allHabitos();
     }
+    public boolean existeHabito(int idActividad, int idUsuario) {
+        return habitoDAO.existeHabito(idActividad, idUsuario);
+    }
 }

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -15,7 +15,7 @@
    <children>
       <AnchorPane prefHeight="422.0" prefWidth="641.0" style="-fx-background-color: white;">
          <children>
-            <AnchorPane layoutY="354.0" prefHeight="68.0" prefWidth="638.0" style="-fx-background-color: black;">
+            <AnchorPane layoutY="354.0" prefHeight="68.0" prefWidth="643.0" style="-fx-background-color: black;">
                <children>
                   <Text fill="WHITE" layoutX="266.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alfonsojaen">
                      <font>
@@ -49,7 +49,11 @@
                   </Text>
                </children>
             </AnchorPane>
-            <Separator layoutX="1.0" layoutY="353.0" prefHeight="2.0" prefWidth="635.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="2.2000000000000455" />
+            <ImageView fitHeight="333.0" fitWidth="645.0" layoutX="-3.0" layoutY="40.0" opacity="0.12" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../icons/fondo%20pantallas.jpg" />
+               </image>
+            </ImageView>
             <Label alignment="CENTER" layoutX="140.0" layoutY="43.0" prefHeight="22.0" prefWidth="132.0">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -73,41 +77,36 @@
                   <Font name="System Bold" size="8.0" />
                </font>
             </Label>
-            <ImageView fitHeight="54.0" fitWidth="56.0" layoutX="171.0" layoutY="256.0" onMouseClicked="#switchToInsertHuella" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="54.0" fitWidth="56.0" layoutX="171.0" layoutY="266.0" onMouseClicked="#switchToInsertHuella" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../icons/Crear%20huella.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="150.0" layoutY="310.0" prefHeight="22.0" prefWidth="95.0" text="AÑADIR HUELLA">
+            <Label alignment="CENTER" layoutX="150.0" layoutY="319.0" prefHeight="22.0" prefWidth="95.0" text="AÑADIR HUELLA">
                <font>
                   <Font name="System Bold" size="10.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="342.0" layoutY="324.0" prefHeight="19.0" prefWidth="126.0" text="VALOR DE IMPACTO">
+            <Label alignment="CENTER" layoutX="340.0" layoutY="324.0" prefHeight="19.0" prefWidth="126.0" text="VALOR DE IMPACTO">
                <font>
                   <Font name="System Bold" size="10.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="336.0" layoutY="312.0" prefHeight="19.0" prefWidth="126.0" text="CALCULAR">
+            <Label alignment="CENTER" layoutX="336.0" layoutY="310.0" prefHeight="19.0" prefWidth="126.0" text="CALCULAR">
                <font>
                   <Font name="System Bold" size="10.0" />
                </font>
             </Label>
-            <ImageView fitHeight="68.0" fitWidth="73.0" layoutX="371.0" layoutY="249.0" onMouseClicked="#mostrarHuellaCarbono" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="68.0" fitWidth="73.0" layoutX="371.0" layoutY="252.0" onMouseClicked="#mostrarHuellaCarbono" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../icons/CalcularHuella.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="31.0" fitWidth="28.0" layoutX="23.0" layoutY="15.0" onMouseClicked="#switchToAnotherScene" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="38.0" fitWidth="22.0" layoutX="14.0" layoutY="9.0" onMouseClicked="#switchToAnotherScene" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../icons/volver-flecha.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="176.0" layoutY="8.0" prefHeight="70.0" prefWidth="279.0" text="HUELLA">
-               <font>
-                  <Font name="Georgia Pro Semibold Italic" size="48.0" />
-               </font>
-            </Label>
             <ImageView fitHeight="22.0" fitWidth="38.0" layoutX="504.0" layoutY="97.0" onMouseClicked="#abrirFiltros" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../icons/filtrar.png" />
@@ -123,6 +122,12 @@
                   <Image url="@../../../icons/restablecer%20filtros.png" />
                </image>
             </ImageView>
+            <Line endX="529.0" endY="-7.62939453125E-6" layoutX="113.0" layoutY="39.0" startX="-116.0" startY="-7.62939453125E-6" />
+            <Label alignment="CENTER" layoutX="40.0" layoutY="4.0" prefHeight="28.0" prefWidth="108.0" text="HUELLA">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

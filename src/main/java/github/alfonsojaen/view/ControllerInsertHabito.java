@@ -57,25 +57,29 @@ public class ControllerInsertHabito {
         String tipoHabito = cTipoHabito.getValue();
         LocalDate fechaSeleccionada = dFecha.getValue();
 
-
         if (frecuencia.isEmpty() || actividadSeleccionada == null || tipoHabito == null || fechaSeleccionada == null) {
-            Utils.ShowAlert("Error, Campos vacíos, Por favor, complete todos los campos.");
+            Utils.ShowAlert("Error, Campos vacíos. Por favor, complete todos los campos.");
             return;
         }
 
         if (!frecuencia.matches("\\d+")) {
-            Utils.ShowAlert("Error, Frecuencia inválida, Ingrese un número válido para la frecuencia.");
+            Utils.ShowAlert("Error, Frecuencia inválida. Ingrese un número válido para la frecuencia.");
             return;
         }
 
         if (fechaSeleccionada.isAfter(LocalDate.now())) {
-            Utils.ShowAlert("Error, Fecha inválida, La fecha no puede ser posterior al día de hoy.");
+            Utils.ShowAlert("Error, Fecha inválida. La fecha no puede ser posterior al día de hoy.");
             return;
         }
 
         Usuario usuarioLogueado = UserSession.getInstancia().getUsuarioIniciado();
         if (usuarioLogueado == null) {
-            Utils.ShowAlert("Error, Usuario no iniciado, Debe iniciar sesión para crear un hábito.");
+            Utils.ShowAlert("Error, Usuario no iniciado. Debe iniciar sesión para crear un hábito.");
+            return;
+        }
+
+        if (habitoService.existeHabito(actividadSeleccionada.getId(), usuarioLogueado.getId())) {
+            Utils.ShowAlert("Error, Ya existe un hábito con esta actividad para este usuario.");
             return;
         }
 
@@ -85,11 +89,11 @@ public class ControllerInsertHabito {
         habito.setTipo(tipoHabito);
         habito.setFrecuencia(Integer.parseInt(frecuencia));
         habito.setUltimaFecha(fechaSeleccionada);
+
         HabitoId habitoId = new HabitoId();
         habitoId.setIdActividad(actividadSeleccionada.getId());
         habitoId.setIdUsuario(usuarioLogueado.getId());
         habito.setId(habitoId);
-
 
         boolean creado = habitoService.createHabito(habito);
 

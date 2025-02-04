@@ -22,6 +22,7 @@ public class UserDAO {
         session.close();
 
     }
+
     public static void updateUser(Usuario user) {
         Session session = Connection.getInstance().getSession();
         Transaction transaction = session.beginTransaction();

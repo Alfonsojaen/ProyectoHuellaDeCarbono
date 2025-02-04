@@ -8,14 +8,80 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.alfonsojaen.view.ControllerShowHabitos">
    <children>
-      <AnchorPane prefHeight="422.0" prefWidth="641.0" style="-fx-background-color: white;">
+      <AnchorPane prefHeight="446.0" prefWidth="651.0" style="-fx-background-color: white;">
          <children>
-            <AnchorPane layoutY="354.0" prefHeight="68.0" prefWidth="638.0" style="-fx-background-color: black;">
+            <Separator layoutX="1.0" layoutY="353.0" prefHeight="2.0" prefWidth="635.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="2.2000000000000455" />
+            <ImageView fitHeight="314.0" fitWidth="645.0" layoutY="41.0" opacity="0.12" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../icons/fondo%20pantallas.jpg" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="140.0" layoutY="43.0" prefHeight="22.0" prefWidth="132.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="38.0" fitWidth="44.0" layoutX="565.0" layoutY="144.0" onMouseClicked="#mostrarRecomendaciones" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/recomendacion.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="536.0" layoutY="182.0" prefHeight="22.0" prefWidth="95.0" text="RECOMENDACIONES">
+               <font>
+                  <Font name="System Bold" size="8.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="54.0" fitWidth="56.0" layoutX="171.0" layoutY="256.0" onMouseClicked="#switchToInsertHabito" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/habitos%20(1).png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="150.0" layoutY="310.0" prefHeight="22.0" prefWidth="95.0" text="AÑADIR HABITO">
+               <font>
+                  <Font name="System Bold" size="10.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="14.0" layoutY="10.0" onMouseClicked="#switchToAnotherScene" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/volver-flecha.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="61.0" layoutY="5.0" prefHeight="28.0" prefWidth="108.0" text="HABITOS">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="22.0" fitWidth="38.0" layoutX="504.0" layoutY="97.0" onMouseClicked="#abrirFiltros" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/filtrar.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="471.0" layoutY="112.0" onMouseClicked="#abrirFiltros" strokeType="OUTSIDE" strokeWidth="0.0" text="Filtro">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="22.0" fitWidth="38.0" layoutX="94.0" layoutY="97.0" onMouseClicked="#restablecerFiltros" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/restablecer%20filtros.png" />
+               </image>
+            </ImageView>
+            <TableView fx:id="tableHabitos" layoutX="98.0" layoutY="124.0" prefHeight="118.0" prefWidth="433.0">
+               <columns>
+                  <TableColumn fx:id="colIdActividad" prefWidth="128.800048828125" text="Actividad" />
+                  <TableColumn fx:id="colFrecuencia" prefWidth="112.80000305175781" text="Frecuencia" />
+                  <TableColumn fx:id="colTipo" prefWidth="89.5999755859375" text="Tipo" />
+                  <TableColumn fx:id="colUltimaFecha" prefWidth="105.5999755859375" text="Última Fecha" />
+               </columns>
+            </TableView>
+            <Line endX="539.2000122070312" layoutX="105.0" layoutY="42.0" startX="-110.00001525878906" startY="7.62939453125E-6" />
+            <AnchorPane layoutY="353.0" prefHeight="71.0" prefWidth="651.0" style="-fx-background-color: black;">
                <children>
                   <Text fill="WHITE" layoutX="266.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alfonsojaen">
                      <font>
@@ -49,80 +115,6 @@
                   </Text>
                </children>
             </AnchorPane>
-            <Separator layoutX="1.0" layoutY="353.0" prefHeight="2.0" prefWidth="635.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="2.2000000000000455" />
-            <Label alignment="CENTER" layoutX="140.0" layoutY="43.0" prefHeight="22.0" prefWidth="132.0">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="38.0" fitWidth="44.0" layoutX="565.0" layoutY="144.0" onMouseClicked="#mostrarRecomendaciones" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../icons/recomendacion.png" />
-               </image>
-            </ImageView>
-            <Label alignment="CENTER" layoutX="536.0" layoutY="182.0" prefHeight="22.0" prefWidth="95.0" text="RECOMENDACIONES">
-               <font>
-                  <Font name="System Bold" size="8.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="54.0" fitWidth="56.0" layoutX="171.0" layoutY="256.0" onMouseClicked="#switchToInsertHabito" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../icons/Crear%20huella.png" />
-               </image>
-            </ImageView>
-            <Label alignment="CENTER" layoutX="150.0" layoutY="310.0" prefHeight="22.0" prefWidth="95.0" text="AÑADIR HUELLA">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="342.0" layoutY="324.0" prefHeight="19.0" prefWidth="126.0" text="VALOR DE IMPACTO">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="336.0" layoutY="312.0" prefHeight="19.0" prefWidth="126.0" text="CALCULAR">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="68.0" fitWidth="73.0" layoutX="371.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../icons/CalcularHuella.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="31.0" fitWidth="28.0" layoutX="23.0" layoutY="15.0" onMouseClicked="#switchToAnotherScene" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../icons/volver-flecha.png" />
-               </image>
-            </ImageView>
-            <Label alignment="CENTER" layoutX="176.0" layoutY="8.0" prefHeight="70.0" prefWidth="279.0" text="HUELLA">
-               <font>
-                  <Font name="Georgia Pro Semibold Italic" size="48.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="22.0" fitWidth="38.0" layoutX="504.0" layoutY="97.0" onMouseClicked="#abrirFiltros" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../icons/filtrar.png" />
-               </image>
-            </ImageView>
-            <Text layoutX="471.0" layoutY="112.0" onMouseClicked="#abrirFiltros" strokeType="OUTSIDE" strokeWidth="0.0" text="Filtro">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="22.0" fitWidth="38.0" layoutX="94.0" layoutY="97.0" onMouseClicked="#restablecerFiltros" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../icons/restablecer%20filtros.png" />
-               </image>
-            </ImageView>
-            <TableView fx:id="tableHabitos" layoutX="98.0" layoutY="124.0" prefHeight="104.0" prefWidth="433.0">
-               <columns>
-                  <TableColumn fx:id="colIdActividad" prefWidth="128.800048828125" text="Actividad" />
-                  <TableColumn fx:id="colFrecuencia" prefWidth="112.80000305175781" text="Frecuencia" />
-                  <TableColumn fx:id="colTipo" prefWidth="89.5999755859375" text="Tipo" />
-                  <TableColumn fx:id="colUltimaFecha" prefWidth="105.5999755859375" text="Última Fecha" />
-               </columns>
-            </TableView>
          </children>
       </AnchorPane>
    </children>
