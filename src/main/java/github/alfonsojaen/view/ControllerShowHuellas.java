@@ -1,11 +1,12 @@
 package github.alfonsojaen.view;
 
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import github.alfonsojaen.entities.*;
 import github.alfonsojaen.services.ActividadService;
 import github.alfonsojaen.services.HuellaService;
 import github.alfonsojaen.services.RecomendacionService;
 import github.alfonsojaen.singleton.UserSession;
-import github.alfonsojaen.utils.Utils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,15 +16,29 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.VBox;
-import javafx.util.StringConverter;
+import javafx.scene.text.Font;
+import javafx.stage.FileChooser;
 import javafx.util.converter.BigDecimalStringConverter;
+import org.w3c.dom.Document;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.Date;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.temporal.IsoFields;
+import java.time.temporal.WeekFields;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import java.util.stream.Collectors;
+
+
 
 public class ControllerShowHuellas {
     @FXML
@@ -195,6 +210,145 @@ public class ControllerShowHuellas {
             alert.showAndWait();
         }
     }
+
+  /* @FXML
+    public void seguimientoHistorico() {
+        Usuario usuarioActual = UserSession.getInstancia().getUsuarioIniciado();
+
+        if (usuarioActual != null) {
+            List<Huella> listaHuellas = huellaService.getAllHuellas();
+            List<Huella> listaFiltrada = listaHuellas.stream()
+                    .filter(h -> h.getIdUsuarioInt().equals(usuarioActual.getId()))
+                    .collect(Collectors.toList());
+
+            if (listaFiltrada.isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Sin Datos");
+                alert.setHeaderText("No hay registros de huella para este usuario.");
+                alert.setContentText("Aún no has registrado actividades con impacto ambiental.");
+                alert.showAndWait();
+                return;
+            }
+
+            Map<Integer, BigDecimal> huellaPorAnio = new HashMap<>();
+            Map<String, BigDecimal> huellaPorMes = new HashMap<>();
+            Map<String, BigDecimal> huellaPorSemana = new HashMap<>();
+
+            for (Huella huella : listaFiltrada) {
+                LocalDate fecha = huella.getFecha();
+
+                if (fecha == null) {
+                    System.err.println("Fecha nula en el registro: " + huella);
+                    continue;
+                }
+
+                BigDecimal valorHuella = huella.getValor();
+                if (valorHuella == null) {
+                    System.err.println("Valor de huella nulo en el registro: " + huella);
+                    continue;
+                }
+
+                int anio = fecha.getYear();
+                String mes = fecha.getYear() + "-" + String.format("%02d", fecha.getMonthValue());
+                String semana = fecha.getYear() + "-W" + fecha.get(IsoFields.WEEK_OF_WEEK_BASED_YEAR);
+
+                huellaPorAnio.put(anio, huellaPorAnio.getOrDefault(anio, BigDecimal.ZERO).add(valorHuella));
+
+                huellaPorMes.put(mes, huellaPorMes.getOrDefault(mes, BigDecimal.ZERO).add(valorHuella));
+
+                huellaPorSemana.put(semana, huellaPorSemana.getOrDefault(semana, BigDecimal.ZERO).add(valorHuella));
+            }
+
+            StringBuilder mensaje = new StringBuilder("📊 Seguimiento Histórico de Huella Ambiental:\n\n");
+
+            mensaje.append("📅 **Huella por Año:**\n");
+            huellaPorAnio.forEach((anio, valor) -> mensaje.append("Año ").append(anio).append(": ").append(valor).append(" unidades\n"));
+
+            mensaje.append("\n📆 **Huella por Mes:**\n");
+            huellaPorMes.forEach((mes, valor) -> mensaje.append("Mes ").append(mes).append(": ").append(valor).append(" unidades\n"));
+
+            mensaje.append("\n🗓 **Huella por Semana:**\n");
+            huellaPorSemana.forEach((semana, valor) -> mensaje.append("Semana ").append(semana).append(": ").append(valor).append(" unidades\n"));
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Seguimiento Histórico");
+            alert.setHeaderText("Comparación del impacto ambiental a lo largo del tiempo");
+            alert.setContentText(mensaje.toString());
+            alert.showAndWait();
+        }
+    }*/
+
+    @FXML
+    public void seguimientoHistorico() {
+        Usuario usuarioActual = UserSession.getInstancia().getUsuarioIniciado();
+
+        if (usuarioActual != null) {
+            List<Huella> listaHuellas = huellaService.getAllHuellas();
+            List<Huella> listaFiltrada = listaHuellas.stream()
+                    .filter(h -> h.getIdUsuarioInt().equals(usuarioActual.getId()))
+                    .collect(Collectors.toList());
+
+            if (listaFiltrada.isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Sin Datos");
+                alert.setHeaderText("No hay registros de huella para este usuario.");
+                alert.setContentText("Aún no has registrado actividades con impacto ambiental.");
+                alert.showAndWait();
+                return;
+            }
+
+            Map<Integer, BigDecimal> huellaPorAnio = new HashMap<>();
+            Map<String, BigDecimal> huellaPorMes = new HashMap<>();
+            Map<String, BigDecimal> huellaPorSemana = new HashMap<>();
+
+            for (Huella huella : listaFiltrada) {
+                LocalDate fecha = huella.getFecha();
+                if (fecha == null) continue;
+
+                BigDecimal valorHuella = huella.getValor();
+                if (valorHuella == null) continue;
+
+                int anio = fecha.getYear();
+                String mes = fecha.getYear() + "-" + String.format("%02d", fecha.getMonthValue());
+
+                // Obtener el inicio y fin de la semana
+                LocalDate inicioSemana = fecha.with(WeekFields.of(Locale.getDefault()).dayOfWeek(), 1);
+                LocalDate finSemana = inicioSemana.plusDays(6);
+
+                String semana = inicioSemana + " al " + finSemana;
+
+                huellaPorAnio.put(anio, huellaPorAnio.getOrDefault(anio, BigDecimal.ZERO).add(valorHuella));
+                huellaPorMes.put(mes, huellaPorMes.getOrDefault(mes, BigDecimal.ZERO).add(valorHuella));
+                huellaPorSemana.put(semana, huellaPorSemana.getOrDefault(semana, BigDecimal.ZERO).add(valorHuella));
+            }
+
+            StringBuilder mensaje = new StringBuilder("📊 Seguimiento Histórico de Huella Ambiental:\n\n");
+
+            mensaje.append("📅 **Huella por Año:**\n");
+            huellaPorAnio.forEach((anio, valor) -> mensaje.append("Año ").append(anio).append(": ").append(valor).append(" unidades\n"));
+
+            mensaje.append("\n📆 **Huella por Mes:**\n");
+            huellaPorMes.forEach((mes, valor) -> mensaje.append("Mes ").append(mes).append(": ").append(valor).append(" unidades\n"));
+
+            mensaje.append("\n🗓 **Huella por Semana:**\n");
+            huellaPorSemana.forEach((semana, valor) ->
+                    mensaje.append(semana).append(" = ( ").append(valor).append(" unidades )\n")
+            );
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Seguimiento Histórico");
+            alert.setHeaderText("Comparación del impacto ambiental a lo largo del tiempo");
+            alert.setContentText(mensaje.toString());
+            alert.showAndWait();
+        }
+    }
+
+
+
+
+
+
+
 
     //FILTROS
 
