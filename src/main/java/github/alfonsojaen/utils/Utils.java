@@ -38,7 +38,13 @@ public class Utils {
 
         return alertDialog;
     }
-
+    public static void mostrarMensaje(String titulo, String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
 
     public static void ShowAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

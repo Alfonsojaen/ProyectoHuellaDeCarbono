@@ -4,7 +4,8 @@ module github.alfonsojaen {
     requires javafx.fxml;
     requires jakarta.persistence;
     requires org.hibernate.orm.core;
-    requires itextpdf;
+    requires kernel;
+    requires layout;
 
     opens github.alfonsojaen to javafx.fxml;
     opens github.alfonsojaen.entities to org.hibernate.orm.core, javafx.base;
