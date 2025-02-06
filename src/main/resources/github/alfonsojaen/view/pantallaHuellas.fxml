@@ -138,11 +138,21 @@
                   <Font name="System Bold" size="10.0" />
                </font>
             </Label>
-            <ImageView fitHeight="54.0" fitWidth="56.0" layoutX="62.0" layoutY="244.0" onMouseClicked="#seguimientoHistorico" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="36.0" layoutY="147.0" onMouseClicked="#seguimientoHistorico" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../icons/Crear%20huella.png" />
+                  <Image url="@../../../icons/resultados.png" />
                </image>
             </ImageView>
+            <Label alignment="CENTER" layoutX="7.0" layoutY="182.0" prefHeight="22.0" prefWidth="95.0" text="SEGUIMIENTO ">
+               <font>
+                  <Font name="System Bold" size="8.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="6.0" layoutY="193.0" prefHeight="22.0" prefWidth="95.0" text="HISTORICO">
+               <font>
+                  <Font name="System Bold" size="8.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
